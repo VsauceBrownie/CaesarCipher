@@ -1,5 +1,4 @@
 import time
-import pyperclip as pc
 
 def encrypt(text, s):
     result = ""
@@ -21,15 +20,7 @@ def cryption():
     print("Text : " + text)
     print("Shift : " + str(s))
     print("Encrypted : " + encrypt(text, s))
-    '''confirmcopy = input("Would you like to copy? (y/n)")
-    if confirmcopy.lower().strip() == "y":
-        try:
-            pc.copy(encrypt(text, s))
-            print("Result Copied Successfully!")
-        except:
-            print("Copy Failed :(")
-    else:
-        print("TERMINATED")'''
+    
     cipher = encrypt(text, s)
     x = 0
     listyy = []
@@ -52,10 +43,6 @@ def cryption():
         print(listyy[e])
     tonkc = time.perf_counter()
     print(f"Time Taken to decrypt: {tonkc - tinkc:0.8f} seconds")
-    ty = open(r"C:\Users\mingm\Desktop\rawdata.txt", "a")
-    ty.write(f"Brute Decryption Time: {tonkc - tinkc:0.8f} seconds")
-    ty.write("\n")
-    ty.close()
 cryption()
 
 def space(string):
@@ -164,7 +151,6 @@ print(comlet - 5)
 oppshift = int(26 - realshift)
 print(oppshift)
 
-
 def encrypt():
     result = ""
     for i in range(len(text)):
@@ -182,8 +168,3 @@ encrypt()
 toc = time.perf_counter()
 print(f"Time Taken to decrypt: {toc - tic:0.8f} seconds")
 timed = str(f"{toc - tic:0.8f} seconds")
-
-w = open(r"C:\Users\mingm\Desktop\rawdata.txt", "a")
-w.write("Frequency Analysis Decryption Time: " + timed)
-w.write("\n")
-w.close()
