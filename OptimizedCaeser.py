@@ -17,6 +17,7 @@ def cryption():
     text = input("Text: ")
     global s
     s = int(input("Shift Amount: "))
+    print("\n==END OF USER INPUT==\n")
     print("Text : " + text)
     print("Shift : " + str(s))
     print("Encrypted : " + encrypt(text, s))
@@ -37,12 +38,13 @@ def cryption():
                 dresult += char
         listyy.append(dresult)
         x+=1
-    print("Ciphertext : " + cipher + "\n")
-    print("Sample Space: ")
+    print("\n\nBrute Force Input : " + cipher + "\n")
+    print("Resulting Sample Space: \n")
     for e in range(len(listyy)):
         print(listyy[e])
     tonkc = time.perf_counter()
-    print(f"Time Taken to decrypt: {tonkc - tinkc:0.8f} seconds")
+    print(f"\nTime Taken to decrypt: {tonkc - tinkc:0.8f} seconds")
+    print("\n<==END OF BRUTE FORCE SCRIPT, BEGINNING FREQUENCY ANALYSIS...==>\n")
 cryption()
 
 def space(string):
@@ -55,7 +57,7 @@ anum = 0
 tic = time.perf_counter()
 for a in text:
     anum += 1
-print("Characters: " + str(anum))
+print("\nCharacters: " + str(anum) + "\n")
 
 an = processedtext.count("a")
 bn = processedtext.count("b")
@@ -87,11 +89,13 @@ zn = processedtext.count("z")
 proc = {"a": an, "b": bn, "c": cn, "d": dn, "e": en, "f": fn, "g": gn, "h": hn, "i": inc, "j": jn, "k": kn, "l": ln,
         "m": mn, "n": nn, "o": on, "p": pn, "q": qn, "r": rn, "s": sn, "t": tn, "u": un, "v": vn, "w": wn, "x": xn,
         "y": yn, "z": zn}
+print("Alphabetical Dict: ")
 print(proc)
+print("\nOrdered Dict: ")
 procsort = dict(sorted(proc.items(), key=lambda item: item[1], reverse=True))
 print(procsort)
 procmax = max(procsort, key=procsort.get)
-print(procmax)
+print("\nMost common ciphertext letter: " + procmax)
 comlet = str(procmax)
 if comlet == "a":
     comlet = 1
@@ -147,9 +151,11 @@ elif comlet == "z":
     comlet = 26
 
 realshift = int(comlet - 5)
-print(comlet - 5)
+strrealshift = str(realshift)
+print("Distance from letter 'e': " + strrealshift)
 oppshift = int(26 - realshift)
-print(oppshift)
+stroppshift = str(oppshift)
+print("Predicted anti-shift: " + stroppshift)
 
 def encrypt():
     result = ""
@@ -161,7 +167,7 @@ def encrypt():
             result += chr((ord(char) + oppshift - 97) % 26 + 97)
         else:
             result += char
-    print(result)
+    print("Predicted Original Message: " + result + "\n")
     return result
 encrypt()
 
